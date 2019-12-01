@@ -31,6 +31,7 @@ class MyTest < Test::Unit::TestCase
     File.chmod(0000, "non_readable.log")
     @parser.execute ['non_readable.log']
     assert_equal("Permission denied @ rb_sysopen - non_readable.log\n", $stderr.string)
+    File.chmod(0444, "non_readable.log")
   end
 
   def test_invalid_integer
@@ -90,10 +91,10 @@ class MyTest < Test::Unit::TestCase
                      "/contact 964021096640 visits "+
                      "/about 830989210475 visits " +
                      "/help_page/1 577424239959 visits "+
-                     "/help_page/2 351106204921 unique views \n"+
-                     "/index 200017277774 unique views \n"+
-                     "/about/3 84123665067 unique views \n"+
-                     "/about/2 16464657359 unique views \n",
+                     "/help_page/2 351106204921 unique views "+
+                     "/index 200017277774 unique views "+
+                     "/about/3 84123665067 unique views "+
+                     "/about/2 16464657359 unique views ",
                  $stdout.string)
   end
 
@@ -106,10 +107,10 @@ class MyTest < Test::Unit::TestCase
                      "/contact 964021096640 visits "+
                      "/about 830989210475 visits " +
                      "/help_page/1 577424239959 visits "+
-                     "/about/2 9916464657359 unique views \n"+
-                     "/about/3 984123665067 unique views \n"+
-                     "/help_page/2 351106204921 unique views \n"+
-                     "/index 200017277774 unique views \n",
+                     "/about/2 9916464657359 unique views "+
+                     "/about/3 984123665067 unique views "+
+                     "/help_page/2 351106204921 unique views "+
+                     "/index 200017277774 unique views ",
                  $stdout.string)
   end
 

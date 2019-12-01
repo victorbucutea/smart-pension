@@ -37,7 +37,7 @@ class VisitsEntry
   end
 
   def to_s
-    @name + " " + @number_of_visits.to_s +  (@unique ?" unique views \n": " visits ")
+    @name + " " + @number_of_visits.to_s +  (@unique ?" unique views ": " visits ")
   end
 
 end
