@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 require './lib/core'
 
-execute ARGV
+Parser.new.execute ARGV
